@@ -168,13 +168,13 @@ NewRxTC
 [Version Ramas]
 5
 Accepted
-true
+GAcceptTC()
 ValidTC
 DSubEst
 FMngTCAcceptation();
+
  
- 
- 
+
 ;
 ;
 ;
@@ -189,9 +189,9 @@ true
 Ready
 DSubEst
 FMngTCRejection();
+
  
- 
- 
+
 ;
 ;
 ;
