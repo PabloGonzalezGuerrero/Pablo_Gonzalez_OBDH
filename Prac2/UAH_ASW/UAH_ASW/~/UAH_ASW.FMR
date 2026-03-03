@@ -4,9 +4,9 @@
 [Version]
 3
 [Nombre Modelo]
-ExampleNexys
+UAH_ASW
 [Modificado]
-0
+1
 [Opciones Modelo]
 [Version Opciones Modelo]
 4
@@ -19,11 +19,11 @@ ExampleNexys
 [CurrentTarget]
 0
 [MESP Directory]
-C:\Users\pablo\Documents\GitHub\Pablo_Gonzalez_OBDH\Prac1\edroom_ej1_nexys_rtems_5_0_leon3\asw
+Z:\home\atcsol\eclipse-workspace\asw_pus_rtems_leon3_st20\asw
 [MESP main Directory]
-C:\Users\pablo\Documents\GitHub\Pablo_Gonzalez_OBDH\Prac1\edroom_ej1_nexys_rtems_5_0_leon3
+Z:\home\atcsol\eclipse-workspace\asw_pus_rtems_leon3_st20
 [MESP main prototype]
-extern "C" rtems_task Init (uint32_t arg)
+rtems_task Init (uint32_t arg)
 [MESP main return]
 ;
 [Dyn Priority]
@@ -60,7 +60,7 @@ EDROOMTarget
 [Version]
 2
 DUMMY_MESCC_Lib
-4
+2
 [ActorDeployment]
 [Version]
 1
@@ -69,84 +69,44 @@ MainActor
 10
 EDROOMprioNormal
  
-ExampleNexys
+UAH_ASW
 NULL
 [EventsDeployment]
+1
+[EventDeployment]
+[Version]
+1
+EvTimerTimer
+Timer
+1
+1
+0
+0
+[CEgRoomDeadLine]
+[Version]
+1
+-1
+-1
+0
 0
 [ActorDeployment]
 [Version]
 1
-SystemMng
+TCManager
 2
 10
-EDROOMprioNormal
+EDROOMprioHigh
  
-CCSystemMng
-ExampleNexys
+CCTCManager
+UAH_ASW
 [EventsDeployment]
 1
 [EventDeployment]
 [Version]
 1
-EvIRQSerialCommand
+EvIRQRxTC
 External
-1
-1
-0
-0
-[CEgRoomDeadLine]
-[Version]
-1
--1
--1
-0
-0
-[ActorDeployment]
-[Version]
-1
-LEDMng
-3
-10
-EDROOMprioNormal
- 
-CCLEDMng
-ExampleNexys
-[EventsDeployment]
-1
-[EventDeployment]
-[Version]
-1
-EvTimerTimer
-Timer
 2
-1
-0
-0
-[CEgRoomDeadLine]
-[Version]
-1
--1
--1
-0
-0
-[ActorDeployment]
-[Version]
-1
-DisplaysMng
-4
-10
-EDROOMprioNormal
- 
-CCDisplaysMng
-ExampleNexys
-[EventsDeployment]
-1
-[EventDeployment]
-[Version]
-1
-EvTimerTimer
-Timer
-3
 1
 0
 0

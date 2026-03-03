@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -17,32 +17,32 @@ NULL
  
 [FinParametro]
 [Stack]
-1
+4
 [FinStack]
 [Puertos]
 2
 [Version Puerto]
 0
-DisplaysMngCtrl
+HK_FDIRTimer
 0
 1
-0
+1
 [Version Grafico Puerto]
 0
-4
-45
-CPDisplaysMngCtrl
+65
+17
+EDROOMTimingSAP
 [Version Puerto]
 0
-Timer
+HK_FDIRCtrl
 0
 1
-1
+0
 [Version Grafico Puerto]
 0
-41
-38
-EDROOMTimingSAP
+28
+4
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -67,7 +67,7 @@ EDROOMTimingSAP
 1
 [Version Modulo]
 1
-nexys_gpio_drv
+pus_services_iface
  
 v1
  
@@ -78,7 +78,7 @@ v1
 [Event]
 [Version]
 1
-EvTimerTimer
+EvTimerHK_FDIRTimer
 Timer
 [Maquina de Estados]
 [Version Maquina de Estados]
@@ -86,7 +86,7 @@ Timer
 Top
 NULL
 [Subestados]
-3
+2
 [Version SubEstados]
 3
 I
@@ -102,21 +102,8 @@ I
 0
 73 73 55 55
 [FinObjetoGrafico]
-Idle
-;
-;
-;
-;
-;
-1
-0
-[ObjetoGrafico]
-[Version Objeto Grafico]
-0
-136 203 176 64
-[FinObjetoGrafico]
 Ready
-FRefreshDisplays();
+;
 ;
 ;
 ;
@@ -126,22 +113,22 @@ FRefreshDisplays();
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-264 350 152 110
+226 279 327 153
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-4
+3
 [Version Transicion]
 5
 Init
 I
 OSubEstI
-Idle
+Ready
 DSubEst
-;
+FInitHK_FDIR();
 [Trigger]
 EDROOMsl
 EDROOMStart
@@ -157,39 +144,39 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-127 100 229 203 0
+112 124 226 333 0
 [FinGraficoTransicion]
-Start
-Idle
+ExecTC
+Ready
 OSubEst
 Ready
 DSubEst
-FProgDisplaysRefresh();
+;
 [Trigger]
-DisplaysMngCtrl
-SDisplaysStart
+HK_FDIRCtrl
+SHK_FDIR_TC
 true
  
  
  
+FExecHK_FDIR_TC();
 ;
-FSendDisplaysReady();
-;
+ 
 0
 ;
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-229 267 324 350 0
+226 346 226 413 6
 [FinGraficoTransicion]
-RefreshDisplays
+DoHK_FDIR
 Ready
 OSubEst
 Ready
 DSubEst
-FProgDisplaysRefresh();
+FDoHK_FDIR();
 [Trigger]
-Timer
+HK_FDIRTimer
 EDROOMSignalTimeout
 true
  
@@ -203,75 +190,44 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-281 460 398 460 5
-[FinGraficoTransicion]
-IncreaseDisplays
-Ready
-OSubEst
-Ready
-DSubEst
-FIncreaseDisplays();
-[Trigger]
-DisplaysMngCtrl
-SIncreaseDisplays
-true
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-416 365 416 442 7
+273 432 505 432 5
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
 [Version VariYConst]
 0
-VDisplays7SegValue
-TEDROOMUInt8
+VNextTimeout
+Pr_Time
 
 Variable
-8
+0
 [Metodos]
-4
+3
 [Version Metodos]
 21
-BasicAction
-FIncreaseDisplays()
-0
-0
-0
-0
-1
- 
-1
-nexys_srg_gpio_increase_seg_7seg_array(VDisplays7SegValue);
 Inform
-FProgDisplaysRefresh()
+FDoHK_FDIR()
 0
 0
 0
 0
 1
  
-4
-	 
-	//Timing Service useful methods
-	 
-interval = Pr_Time(0,1000);
+6
+ 
+VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec 
+time=VNextTimeout; 
+ 
+pus_services_update_params();
+pus_service3_do_HK();
 [ServiceRequest]
-InformIn
-Timer
+InformAt
+HK_FDIRTimer
 EDROOMSignalTimeout
-TEDROOMUInt8
+ 
 EDROOMprioNormal
-BasicAction
-FRefreshDisplays()
+MsgDataHandler
+FExecHK_FDIR_TC()
 0
 0
 0
@@ -279,26 +235,34 @@ FRefreshDisplays()
 1
  
 2
-for(uint16_t i=0; i < 1000 ; i++ )
-	nexys_srg_gpio_seg_7seg_array(8,VDisplays7SegValue);
-SendMsg
-FSendDisplaysReady()
+ 
+varSHK_FDIR_TC.ExecTC();
+[ServiceRequest]
+Msg->data
+HK_FDIRCtrl
+SHK_FDIR_TC
+CDTCHandler
+EDROOMprioNormal
+Inform
+FInitHK_FDIR()
 0
 0
 0
 0
 1
  
-4
-for(uint8_t i=0; i < 8 ; i++)
-	VDisplays7SegValue[i]=0;
+6
  
-nexys_srg_gpio_set_7seg_digit(7, 0) ;
+time.GetTime(); // Get current monotonic time   
+time+=Pr_Time(1,0); // Add X sec + Y microsec    
+VNextTimeout=time;
+ 
+ 
 [ServiceRequest]
-send
-DisplaysMngCtrl
-SDisplaysReady
-NULL
+InformAt
+HK_FDIRTimer
+EDROOMSignalTimeout
+ 
 EDROOMprioNormal
 [MaquinasSubEstados]
 0

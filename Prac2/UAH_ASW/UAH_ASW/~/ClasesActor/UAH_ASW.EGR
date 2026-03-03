@@ -5,9 +5,9 @@
 0
 0
 [Modificado]
-0
-0
-0
+1
+1
+3
 [Estructura]
 [Version Estructura]
 3
@@ -20,18 +20,7 @@ NULL
 1
 [FinStack]
 [Puertos]
-2
-[Version Puerto]
-0
-DisplaysMngCtrl
-0
 1
-0
-[Version Grafico Puerto]
-0
-4
-45
-CPDisplaysMngCtrl
 [Version Puerto]
 0
 Timer
@@ -40,12 +29,29 @@ Timer
 1
 [Version Grafico Puerto]
 0
-41
-38
+86
+86
 EDROOMTimingSAP
 [FinPuertos]
 [ActoresComponente]
+1
+[Version Actor Componente]
+2
+TCManager
+1
 0
+-1
+10
+7
+EDROOMprioHigh
+ 
+[Version Grafico Actor Componente]
+0
+26.3672
+18.6858
+70.8984
+33.0595
+CCTCManager
 [FinActoresComponente]
 [Uniones]
 0
@@ -67,7 +73,7 @@ EDROOMTimingSAP
 1
 [Version Modulo]
 1
-nexys_gpio_drv
+emu_hw_timecode_drv
  
 v1
  
@@ -86,7 +92,7 @@ Timer
 Top
 NULL
 [Subestados]
-3
+2
 [Version SubEstados]
 3
 I
@@ -102,23 +108,10 @@ I
 0
 73 73 55 55
 [FinObjetoGrafico]
-Idle
-;
-;
-;
-;
-;
-1
-0
-[ObjetoGrafico]
-[Version Objeto Grafico]
-0
-136 203 176 64
-[FinObjetoGrafico]
 Ready
-FRefreshDisplays();
 ;
 ;
+FProgTimer();
 ;
 ;
 1
@@ -126,22 +119,22 @@ FRefreshDisplays();
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-264 350 152 110
+207 225 183 86
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-4
+2
 [Version Transicion]
 5
 Init
 I
 OSubEstI
-Idle
+Ready
 DSubEst
-;
+FEmuInit();
 [Trigger]
 EDROOMsl
 EDROOMStart
@@ -157,37 +150,14 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-127 100 229 203 0
+116 121 207 256 0
 [FinGraficoTransicion]
-Start
-Idle
-OSubEst
-Ready
-DSubEst
-FProgDisplaysRefresh();
-[Trigger]
-DisplaysMngCtrl
-SDisplaysStart
-true
- 
- 
- 
-;
-FSendDisplaysReady();
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-229 267 324 350 0
-[FinGraficoTransicion]
-RefreshDisplays
+NexTimeCode
 Ready
 OSubEst
 Ready
 DSubEst
-FProgDisplaysRefresh();
+FEmuRxTimeCode();
 [Trigger]
 Timer
 EDROOMSignalTimeout
@@ -203,75 +173,50 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-281 460 398 460 5
-[FinGraficoTransicion]
-IncreaseDisplays
-Ready
-OSubEst
-Ready
-DSubEst
-FIncreaseDisplays();
-[Trigger]
-DisplaysMngCtrl
-SIncreaseDisplays
-true
- 
- 
- 
-;
-;
-;
-0
-;
-[GraficoTransicion]
-[Version GraficoTransicion]
-0
-416 365 416 442 7
+239 225 366 225 4
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
 [Version VariYConst]
 0
-VDisplays7SegValue
-TEDROOMUInt8
+VEmuTimeCode
+Pr_Time
 
 Variable
-8
+0
 [Metodos]
-4
+3
 [Version Metodos]
 21
-BasicAction
-FIncreaseDisplays()
-0
-0
-0
-0
-1
- 
-1
-nexys_srg_gpio_increase_seg_7seg_array(VDisplays7SegValue);
 Inform
-FProgDisplaysRefresh()
+FEmuInit()
 0
 0
 0
 0
 1
  
-4
+12
 	 
 	//Timing Service useful methods
+	
+ 
+VEmuTimeCode.GetTime();
+ 
+EmuHwTimeCodeStartUp();
 	 
-interval = Pr_Time(0,1000);
+VEmuTimeCode.GetTime();	
+VEmuTimeCode+=Pr_Time(1,0);
+ 
+time=VEmuTimeCode;
 [ServiceRequest]
-InformIn
+InformAt
 Timer
 EDROOMSignalTimeout
-TEDROOMUInt8
-EDROOMprioNormal
+ 
+ 
 BasicAction
-FRefreshDisplays()
+FEmuRxTimeCode()
 0
 0
 0
@@ -279,26 +224,30 @@ FRefreshDisplays()
 1
  
 2
-for(uint16_t i=0; i < 1000 ; i++ )
-	nexys_srg_gpio_seg_7seg_array(8,VDisplays7SegValue);
-SendMsg
-FSendDisplaysReady()
+ 
+EmuHwTimeCodePassSecond();
+Inform
+FProgTimer()
 0
 0
 0
 0
 1
  
-4
-for(uint8_t i=0; i < 8 ; i++)
-	VDisplays7SegValue[i]=0;
+8
+	 
+	//Timing Service useful methods
+	 
+	//time.GetTime(); // Get current monotonic time
+	//time.Add(X,Y); // Add X sec + Y microsec
+  VEmuTimeCode+=Pr_Time(1,0);
  
-nexys_srg_gpio_set_7seg_digit(7, 0) ;
+  time=VEmuTimeCode;
 [ServiceRequest]
-send
-DisplaysMngCtrl
-SDisplaysReady
-NULL
+InformAt
+Timer
+EDROOMSignalTimeout
+ 
 EDROOMprioNormal
 [MaquinasSubEstados]
 0
