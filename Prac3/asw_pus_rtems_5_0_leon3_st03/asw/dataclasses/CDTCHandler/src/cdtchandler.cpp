@@ -57,6 +57,10 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	switch (type) {
 
 	case (17):
+			execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
+			break;
+
+	case (17):
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
 
@@ -139,6 +143,9 @@ void CDTCHandler::ExecHK_FDIRTC() {
 
 		switch (type) {
 
+		case (3):
+					pus_service3_exec_tc(&mTCHandler);
+					break;
 
 		default:
 			//No defined code for this TC. Design error

@@ -51,11 +51,12 @@ void EmuGSS_ShowTM(const struct tm_mem_descriptor *pTMDescriptor) {
 		EmuGSS_ShowServ1TM(pTMDescriptor);
 
 		break;
-/*
+
 	case (3):
 		EmuGSS_ShowServ3TM(pTMDescriptor);
 		break;
 
+/*
 	case (4):
 		EmuGSS_ShowServ4TM(pTMDescriptor);
 		break;

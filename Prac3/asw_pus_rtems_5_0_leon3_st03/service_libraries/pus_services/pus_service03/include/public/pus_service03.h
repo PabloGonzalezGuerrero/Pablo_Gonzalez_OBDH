@@ -1,7 +1,7 @@
 /*
- * pus_services_iface_v1.h
+ * asw_pus_service3.h
  *
- *  Created on: Oct 26, 2024
+ *  Created on: Oct 21, 2024
  *      Author: Oscar Rodriguez Polo
  */
 
@@ -25,41 +25,50 @@
  ****************************************************************************/
 
 
-#ifndef PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-#define PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-
+#ifndef SERVICE_LIBRARIES_ASW_PUS_SERVICES_ASW_PUS_SERVICE3_INCLUDE_ASW_PUS_SERVICE3_H_
+#define SERVICE_LIBRARIES_ASW_PUS_SERVICES_ASW_PUS_SERVICE3_INCLUDE_ASW_PUS_SERVICE3_H_
 
 #include "public/config.h"
 #include "public/basic_types.h"
-#include "public/serialize.h"
-#include "public/cdtchandler_iface_v1.h"
-#include "public/cdtcmemdescriptor_iface_v1.h"
 
-
-#include "public/tc_rate_ctrl.h"
-
-#include "public/pus_service01.h"
-#include "public/pus_service03.h"
-#include "public/pus_service17.h"
+#include "public/pus_tc_handler.h"
+#include "public/pus_tm_handler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//Start up
-void pus_services_startup(void * irq_interface);
+#define PUS_SERVICE3_MAX_NUM_OF_SIDS 16
 
-//Reboot
-void pus_services_mng_reboot();
+#define PUS_SERVICE3_MAX_NUM_OF_PID_PER_SID 12
 
+enum SID_config_status{SIDEnabled, SIDDisabled, SIDConfigUnused};
 
-//Do FDIR
-void pus_services_do_FDIR();
+struct HK_config{
+  enum SID_config_status  status;
+  uint16_t SID;
+  uint8_t interval;
+  uint8_t interval_ctrl;
+  uint8_t num_of_params;
+  uint16_t param_IDs[PUS_SERVICE3_MAX_NUM_OF_PID_PER_SID];
+};
 
-//Update Params
-void pus_services_update_params();
+typedef struct HK_config HK_config_t;
+
+/**
+ * \brief Do HK, managing the generation of TM[3,25]
+ */
+void pus_service3_do_HK();
+
+/**
+ * \brief executes a TC[3,X] telecommand
+ * \param ptc_handler pointer to the tc handler
+ */
+void pus_service3_exec_tc(tc_handler_t *ptc_handler);
 
 #ifdef __cplusplus
 }
 #endif
-#endif // PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
+
+
+#endif /* SERVICE_LIBRARIES_ASW_PUS_SERVICES_ASW_PUS_SERVICE3_INCLUDE_ASW_PUS_SERVICE3_H_ */

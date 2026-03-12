@@ -1,7 +1,7 @@
 /*
- * pus_services_iface_v1.h
+ * asw_pus_service3_exec_tc.h
  *
- *  Created on: Oct 26, 2024
+ *  Created on: Oct 24, 2024
  *      Author: Oscar Rodriguez Polo
  */
 
@@ -25,41 +25,36 @@
  ****************************************************************************/
 
 
-#ifndef PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-#define PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-
+#ifndef SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_EXEC_TC_H_
+#define SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_EXEC_TC_H_
 
 #include "public/config.h"
-#include "public/basic_types.h"
-#include "public/serialize.h"
-#include "public/cdtchandler_iface_v1.h"
-#include "public/cdtcmemdescriptor_iface_v1.h"
-
-
-#include "public/tc_rate_ctrl.h"
-
-#include "public/pus_service01.h"
-#include "public/pus_service03.h"
-#include "public/pus_service17.h"
+#include <public/pus_tc_handler.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//Start up
-void pus_services_startup(void * irq_interface);
+/**
+ * \brief executes a TC[3,5] telecommand
+ * \param ptc_handler pointer to the tc handler
+ */
+void pus_service3_exec_TC_3_5(tc_handler_t *ptc_handler);
 
-//Reboot
-void pus_services_mng_reboot();
+/**
+ * \brief executes a TC[3,6] telecommand
+ * \param ptc_handler pointer to the tc handler
+ */
+void pus_service3_exec_TC_3_6(tc_handler_t *ptc_handler);
 
-
-//Do FDIR
-void pus_services_do_FDIR();
-
-//Update Params
-void pus_services_update_params();
+/**
+ * \brief executes a TC[3,31] telecommand
+ * \param ptc_handler pointer to the tc handler
+ */
+void pus_service3_exec_TC_3_31(tc_handler_t *ptc_handler);
 
 #ifdef __cplusplus
 }
 #endif
-#endif // PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
+
+#endif /* SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_EXEC_TC_H_ */

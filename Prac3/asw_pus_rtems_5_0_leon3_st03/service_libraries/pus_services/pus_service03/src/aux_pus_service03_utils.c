@@ -1,7 +1,7 @@
 /*
- * pus_services_iface_v1.h
+ * asw_pus_service3_aux.c
  *
- *  Created on: Oct 26, 2024
+ *  Created on: Oct 24, 2024
  *      Author: Oscar Rodriguez Polo
  */
 
@@ -25,41 +25,26 @@
  ****************************************************************************/
 
 
-#ifndef PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-#define PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
+#include <public/pus_service03.h>
+#include <pus_service03/aux_pus_service03_utils.h>
+
+extern HK_config_t HKConfig[PUS_SERVICE3_MAX_NUM_OF_SIDS];
 
 
-#include "public/config.h"
-#include "public/basic_types.h"
-#include "public/serialize.h"
-#include "public/cdtchandler_iface_v1.h"
-#include "public/cdtcmemdescriptor_iface_v1.h"
+error_code_t pus_service3_get_SID_index(uint16_t struct_id, uint8_t *p_validindex){
 
+	error_code_t error= 1;
 
-#include "public/tc_rate_ctrl.h"
+	for (int i = 0; ((i < PUS_SERVICE3_MAX_NUM_OF_SIDS) && error); i++) {
+		if ((struct_id == HKConfig[i].SID) &&
+				(HKConfig[i].status!=SIDConfigUnused)){
 
-#include "public/pus_service01.h"
-#include "public/pus_service03.h"
-#include "public/pus_service17.h"
+			*p_validindex= i;
+			error = 0; //No error. Index founded
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-//Start up
-void pus_services_startup(void * irq_interface);
-
-//Reboot
-void pus_services_mng_reboot();
-
-
-//Do FDIR
-void pus_services_do_FDIR();
-
-//Update Params
-void pus_services_update_params();
-
-#ifdef __cplusplus
+		}
+	}
+	return error;
 }
-#endif
-#endif // PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
+
+

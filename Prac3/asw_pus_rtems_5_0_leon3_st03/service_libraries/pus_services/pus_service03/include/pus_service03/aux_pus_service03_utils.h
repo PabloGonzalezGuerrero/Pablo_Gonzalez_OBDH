@@ -1,7 +1,7 @@
 /*
- * pus_services_iface_v1.h
+ * asw_pus_service3_aux.h
  *
- *  Created on: Oct 26, 2024
+ *  Created on: Oct 24, 2024
  *      Author: Oscar Rodriguez Polo
  */
 
@@ -24,42 +24,26 @@
  *
  ****************************************************************************/
 
+#ifndef SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_UTILS_H_
+#define SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_UTILS_H_
 
-#ifndef PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-#define PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
-
-
-#include "public/config.h"
 #include "public/basic_types.h"
-#include "public/serialize.h"
-#include "public/cdtchandler_iface_v1.h"
-#include "public/cdtcmemdescriptor_iface_v1.h"
-
-
-#include "public/tc_rate_ctrl.h"
-
-#include "public/pus_service01.h"
-#include "public/pus_service03.h"
-#include "public/pus_service17.h"
+#include "public/config.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//Start up
-void pus_services_startup(void * irq_interface);
-
-//Reboot
-void pus_services_mng_reboot();
-
-
-//Do FDIR
-void pus_services_do_FDIR();
-
-//Update Params
-void pus_services_update_params();
+/**
+ * \brief get the SID index in the HKConfig structure
+ * \param struct_id housekeeping structure identifier
+ * \param p_validindex pointer to the a valid index
+ * \return 0 only if SID is valid, 1 if not
+ */
+error_code_t pus_service3_get_SID_index(uint16_t struct_id,
+		uint8_t *p_validindex);
 
 #ifdef __cplusplus
 }
 #endif
-#endif // PUBLIC__ICUASW_PUS_SERVICES_IFACE_V1_H
+#endif /* SERVICE_LIBRARIES_PUS_SERVICES_PUS_SERVICE03_INCLUDE_PUS_SERVICE03_AUX_PUS_SERVICE03_UTILS_H_ */
