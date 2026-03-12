@@ -14,6 +14,7 @@
  
 #include <public/uah_asw_iface_v1.h>
 #include <public/cctcmanager_iface_v1.h>
+#include <public/cchk_fdirmng_iface_v1.h>
 // ***********************************************************************
 // class CEDROOMSystemMemory
 // ***********************************************************************
@@ -32,10 +33,17 @@ class CEDROOMSystemMemory{
 	CEDROOMQueue::CQueueNode	comp2QueueNodes[10];
 	bool	comp2QueueNodesMarks[10];
  
+	//!Messages Memory of component comp3
+	CEDROOMMessage	comp3Messages[10];
+	bool	comp3MessagesMarks[10];
+	CEDROOMQueue::CQueueNode	comp3QueueNodes[13];
+	bool	comp3QueueNodesMarks[13];
+ 
 	public:
  
 	UAH_ASW::CEDROOMMemory comp1Memory;
 	CCTCManager::CEDROOMMemory comp2Memory;
+	CCHK_FDIRMng::CEDROOMMemory comp3Memory;
  
 //!Set Memory
 	void SetMemory();
@@ -51,17 +59,24 @@ class CEDROOMSystemCommSAP{
  
 //!Conections
  
-	CEDROOMLocalConnection connections[0];
+	CEDROOMLocalConnection connections[1];
  
 	UAH_ASW   * mp_comp1;
 	CCTCManager   * mp_comp2;
+	CCHK_FDIRMng   * mp_comp3;
  
  
 //!Set Components
  
 	void SetComponents(UAH_ASW   *p_comp1,
-							CCTCManager   *p_comp2);
+							CCTCManager   *p_comp2,
+							CCHK_FDIRMng   *p_comp3);
  
+ 
+//Signal Conversion
+ 
+	static TEDROOMSignal C2TCManager_PHK_FDIRCtrl__C3HK_FDIRMng_PHK_FDIRCtrl(TEDROOMSignal signal);
+	static TEDROOMSignal C3HK_FDIRMng_PHK_FDIRCtrl__C2TCManager_PHK_FDIRCtrl(TEDROOMSignal signal);
  
  
 //!Register Interfaces
@@ -94,6 +109,7 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
  
 	UAH_ASW   * mp_comp1;
 	CCTCManager   * mp_comp2;
+	CCHK_FDIRMng   * mp_comp3;
  
 	public:
  
@@ -101,7 +117,8 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
  
 //!Deployment Configuration
 	void Config(UAH_ASW   *p_comp1,
-					CCTCManager   *p_comp2);
+					CCTCManager   *p_comp2,
+					CCHK_FDIRMng   *p_comp3);
  
 //!Deployment Start
 	void Start();
@@ -112,6 +129,7 @@ static Pr_TaskRV_t main_task(Pr_TaskP_t);
  
 	UAH_ASW::CEDROOMMemory 		* GetComp1Memory(){return &systemMemory.comp1Memory;}
 	CCTCManager::CEDROOMMemory 		* GetComp2Memory(){return &systemMemory.comp2Memory;}
+	CCHK_FDIRMng::CEDROOMMemory 		* GetComp3Memory(){return &systemMemory.comp3Memory;}
  
 };
 #endif

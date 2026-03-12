@@ -19,6 +19,7 @@ CCTCManager::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(CCTCManager &act,
 	EDROOMcomponent(act),
 	Msg(EDROOMcomponent.Msg),
 	MsgBack(EDROOMcomponent.MsgBack),
+	HK_FDIRCtrl(EDROOMcomponent.HK_FDIRCtrl),
 	RxTC(EDROOMcomponent.RxTC),
 	VAcceptReport(EDROOMpVarVAcceptReport),
 	VCurrentTC(EDROOMpVarVCurrentTC),
@@ -32,6 +33,7 @@ CCTCManager::EDROOM_CTX_Top_0::EDROOM_CTX_Top_0(EDROOM_CTX_Top_0 &context):
 	EDROOMcomponent(context.EDROOMcomponent),
 	Msg(context.Msg),
 	MsgBack(context.MsgBack),
+	HK_FDIRCtrl(context.HK_FDIRCtrl),
 	RxTC(context.RxTC),
 	VAcceptReport(context.VAcceptReport),
 	VCurrentTC(context.VCurrentTC),
@@ -184,6 +186,31 @@ return VTCExecCtrl.IsRebootTC();
 
 
 
+bool	CCTCManager::EDROOM_CTX_Top_0::GFwdToHK_FDIR()
+
+{
+
+return VTCExecCtrl.IsHK_FDIRTC();
+
+}
+
+
+
+void	CCTCManager::EDROOM_CTX_Top_0::FFwdHK_FDIRTC()
+
+{
+   //Allocate data from pool
+  CDTCHandler * pSHK_FDIR_TC_Data = EDROOMPoolCDTCHandler.AllocData();
+	
+		// Complete Data 
+	
+	*pSHK_FDIR_TC_Data=VCurrentTC;
+   //Send message 
+   HK_FDIRCtrl.send(SHK_FDIR_TC,pSHK_FDIR_TC_Data,&EDROOMPoolCDTCHandler); 
+}
+
+
+
 	//********************************** Pools *************************************
 
 	//CEDROOMPOOLCDTCHandler
@@ -301,6 +328,19 @@ void CCTCManager::EDROOM_SUB_Top_0::EDROOMBehaviour()
 
 					//Next State is Reboot
 					edroomNextState = Reboot;
+				 } 
+				//Evaluate Branch FwdHK_FDIRTC
+				else if( GFwdToHK_FDIR() )
+				{
+					//Send Asynchronous Message 
+					FFwdHK_FDIRTC();
+
+					//Branch taken is HandleTC_FwdHK_FDIRTC
+					edroomCurrentTrans.localId =
+						HandleTC_FwdHK_FDIRTC;
+
+					//Next State is Ready
+					edroomNextState = Ready;
 				 } 
 				//Default Branch ExecPrioTC
 				else
