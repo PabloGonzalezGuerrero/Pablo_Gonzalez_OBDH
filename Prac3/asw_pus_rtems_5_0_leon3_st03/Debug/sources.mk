@@ -47,6 +47,7 @@ service_libraries/edroomsl/edroomsl/src \
 service_libraries/edroomsl/edroomsl_types/src \
 service_libraries/emu_tc_programming/src \
 service_libraries/pus_services/pus_service01/src \
+service_libraries/pus_services/pus_service03/src \
 service_libraries/pus_services/pus_service17/src \
 service_libraries/pus_services/pus_sys_data_pool/src \
 service_libraries/pus_services/pus_tc_handler/src \

@@ -56,7 +56,12 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	CDTCExecCtrl execCtrl;
 	switch (type) {
 
-	//TODO 05 Set ST[17,X] as prioTC
+	case (3):
+		execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
+		break;
+
+
+	//Set ST[17,X] as prioTC
 	case (17):
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
@@ -126,4 +131,35 @@ void CDTCHandler::ExecRebootTC() {
 	}
 
 }
+
+
+void CDTCHandler::ExecHK_FDIRTC() {
+
+	error_code_t error;
+	error = tc_handler_start_up_execution(&mTCHandler);
+
+	if (!error) {
+
+		//Get TC type
+		uint8_t type = mTCHandler.tc_df_header.type;
+
+		switch (type) {
+
+
+		case (3):
+			pus_service3_exec_tc(&mTCHandler);
+			break;
+
+		default:
+			//No defined code for this TC. Design error
+			pus_service1_tx_TM_1_4_TC_X_Y_NO_EXEC_CODE(&mTCHandler);
+			break;
+
+		}
+
+		tc_handler_free_memory(&mTCHandler);
+	}
+
+}
+
 
