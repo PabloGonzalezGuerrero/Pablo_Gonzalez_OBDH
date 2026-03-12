@@ -39,7 +39,6 @@ void pus_service17_exec_tc(
 		tc_handler_t *ptc_handler){
 	switch (ptc_handler->tc_df_header.subtype) {
 
-	//TODO 08 execute pus_service17_exec_TC_17_1
 		case (1):
 				pus_service17_exec_TC_17_1(ptc_handler);
 		break;
@@ -55,13 +54,10 @@ void pus_service17_exec_tc(
 void pus_service17_exec_TC_17_1(tc_handler_t *ptc_handler){
 
 
-	//TODO 09 Tx TM[1,3]
 	pus_service1_tx_TM_1_3(ptc_handler);
 
-	//TODO 10 Tx TM[17,1]
 	pus_service17_tx_TM_17_2(ptc_handler);
 
-	//TODO 11 Tx TM[1,7]
 	pus_service1_tx_TM_1_7(ptc_handler);
 
 

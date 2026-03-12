@@ -48,7 +48,7 @@ public:
 	void ExecRebootTC();
 
 	//!Exec the reboot telecommands
-	void ExecHKTC();
+	void ExecHK_FDIRTC();
 
 	//!Exec the reboot telecommands
 	void ExecBKGTC();

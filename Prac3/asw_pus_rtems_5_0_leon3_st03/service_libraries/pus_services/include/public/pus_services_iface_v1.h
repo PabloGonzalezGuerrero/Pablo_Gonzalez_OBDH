@@ -39,7 +39,6 @@
 #include "public/tc_rate_ctrl.h"
 
 #include "public/pus_service01.h"
-#include "public/pus_service03.h"
 #include "public/pus_service17.h"
 
 #ifdef __cplusplus

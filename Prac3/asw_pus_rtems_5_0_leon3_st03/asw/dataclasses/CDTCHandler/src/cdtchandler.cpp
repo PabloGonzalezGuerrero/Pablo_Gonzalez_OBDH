@@ -47,7 +47,7 @@ void CDTCHandler::MngTCAcceptation() {
 	pus_service1_tx_TM_1_1(&mTCHandler);
 
 }
-
+//TODO Complete ExecCtrl
 CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 
 	//Get TC type
@@ -56,12 +56,6 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 	CDTCExecCtrl execCtrl;
 	switch (type) {
 
-	case (3):
-		execCtrl.mExecCtrl = ExecCtrlHK_FDIRTC;
-		break;
-
-
-	//Set ST[17,X] as prioTC
 	case (17):
 		execCtrl.mExecCtrl = ExecCtrlPrioTC;
 		break;
@@ -75,6 +69,9 @@ CDTCExecCtrl CDTCHandler::GetExecCtrl() {
 
 	return execCtrl;
 }
+//**************************************************************************
+//TODO Complete Exec_Type_TC according to defined ExecCtrl
+//**************************************************************************
 
 void CDTCHandler::ExecPrioTC() {
 
@@ -87,8 +84,6 @@ void CDTCHandler::ExecPrioTC() {
 		uint8_t type = mTCHandler.tc_df_header.type;
 
 		switch (type) {
-
-		//TODO 07 call pus_service17_exec_tc(&mTCHandler);
 
 		case (17):
 			pus_service17_exec_tc(&mTCHandler);
@@ -132,7 +127,6 @@ void CDTCHandler::ExecRebootTC() {
 
 }
 
-
 void CDTCHandler::ExecHK_FDIRTC() {
 
 	error_code_t error;
@@ -146,9 +140,30 @@ void CDTCHandler::ExecHK_FDIRTC() {
 		switch (type) {
 
 
-		case (3):
-			pus_service3_exec_tc(&mTCHandler);
+		default:
+			//No defined code for this TC. Design error
+			pus_service1_tx_TM_1_4_TC_X_Y_NO_EXEC_CODE(&mTCHandler);
 			break;
+
+		}
+
+		tc_handler_free_memory(&mTCHandler);
+	}
+
+}
+
+void CDTCHandler::ExecBKGTC() {
+
+	error_code_t error;
+	error = tc_handler_start_up_execution(&mTCHandler);
+
+	if (!error) {
+
+		//Get TC type
+		uint8_t type = mTCHandler.tc_df_header.type;
+
+		switch (type) {
+
 
 		default:
 			//No defined code for this TC. Design error
