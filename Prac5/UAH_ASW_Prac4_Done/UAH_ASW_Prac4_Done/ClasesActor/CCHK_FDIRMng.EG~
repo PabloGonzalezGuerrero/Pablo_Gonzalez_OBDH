@@ -7,7 +7,7 @@
 [Modificado]
 0
 0
-3
+0
 [Estructura]
 [Version Estructura]
 3
@@ -17,94 +17,38 @@ NULL
  
 [FinParametro]
 [Stack]
-1
+4
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
-Timer
+HK_FDIRTimer
 0
 1
 1
 [Version Grafico Puerto]
 0
-86
-86
+65
+17
 EDROOMTimingSAP
+[Version Puerto]
+0
+HK_FDIRCtrl
+0
+1
+0
+[Version Grafico Puerto]
+0
+28
+4
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
-3
-[Version Actor Componente]
-2
-TCManager
-1
 0
--1
-10
-7
-EDROOMprioHigh
- 
-[Version Grafico Actor Componente]
-0
-26.3672
-18.6858
-70.8984
-33.0595
-CCTCManager
-[Version Actor Componente]
-2
-HK_FDIRMng
-1
-0
-0
-10
-7
-EDROOMprioNormal
- 
-[Version Grafico Actor Componente]
-0
-21.875
-49.2813
-42.3828
-64.6817
-CCHK_FDIRMng
-[Version Actor Componente]
-2
-BKGTCExec
-1
-0
-0
-10
-7
-EDROOMprioNormal
- 
-[Version Grafico Actor Componente]
-0
-59.5703
-47.2279
-81.6406
-63.4497
-CCBKGTCExec
 [FinActoresComponente]
 [Uniones]
-2
-[Version Union]
 0
-Union
-1
-HK_FDIRCtrl
-HK_FDIRCtrl
-HK_FDIRMng
-TCManager
-[Version Union]
-0
-Union2
-1
-BKGExecCtrl
-BKGExecCtrl
-TCManager
-BKGTCExec
 [FinUniones]
 [NumTimers]
 2
@@ -123,7 +67,7 @@ BKGTCExec
 1
 [Version Modulo]
 1
-emu_hw_timecode_drv
+pus_services_iface
  
 v1
  
@@ -134,7 +78,7 @@ v1
 [Event]
 [Version]
 1
-EvTimerTimer
+EvTimerHK_FDIRTimer
 Timer
 [Maquina de Estados]
 [Version Maquina de Estados]
@@ -161,7 +105,7 @@ I
 Ready
 ;
 ;
-FProgTimer();
+;
 ;
 ;
 1
@@ -169,14 +113,14 @@ FProgTimer();
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-207 225 183 86
+226 279 327 153
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
 [Version PuntosEleccion]
 2
 [Transiciones]
-2
+3
 [Version Transicion]
 5
 Init
@@ -184,7 +128,7 @@ I
 OSubEstI
 Ready
 DSubEst
-FEmuInit();
+FInitHK_FDIR();
 [Trigger]
 EDROOMsl
 EDROOMStart
@@ -200,16 +144,39 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-116 121 207 256 0
+112 124 226 333 0
 [FinGraficoTransicion]
-NexTimeCode
+ExecTC
 Ready
 OSubEst
 Ready
 DSubEst
-FEmuRxTimeCode();
+;
 [Trigger]
-Timer
+HK_FDIRCtrl
+SHK_FDIR_TC
+true
+ 
+ 
+ 
+FExecHK_FDIR_TC();
+;
+ 
+0
+;
+[GraficoTransicion]
+[Version GraficoTransicion]
+0
+226 346 226 413 6
+[FinGraficoTransicion]
+DoHK_FDIR
+Ready
+OSubEst
+Ready
+DSubEst
+FDoHK_FDIR();
+[Trigger]
+HK_FDIRTimer
 EDROOMSignalTimeout
 true
  
@@ -223,13 +190,13 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-239 225 366 225 4
+273 432 505 432 5
 [FinGraficoTransicion]
 [VariablesConstantes]
 1
 [Version VariYConst]
 0
-VEmuTimeCode
+VNextTimeout
 Pr_Time
 
 Variable
@@ -239,34 +206,28 @@ Variable
 [Version Metodos]
 21
 Inform
-FEmuInit()
+FDoHK_FDIR()
 0
 0
 0
 0
 1
  
-12
-	 
-	//Timing Service useful methods
-	
+6
  
-VEmuTimeCode.GetTime();
+VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec 
+time=VNextTimeout; 
  
-EmuHwTimeCodeStartUp();
-	 
-VEmuTimeCode.GetTime();	
-VEmuTimeCode+=Pr_Time(1,0);
- 
-time=VEmuTimeCode;
+pus_services_update_params();
+pus_service3_do_HK();
 [ServiceRequest]
 InformAt
-Timer
+HK_FDIRTimer
 EDROOMSignalTimeout
  
- 
-BasicAction
-FEmuRxTimeCode()
+EDROOMprioNormal
+MsgDataHandler
+FExecHK_FDIR_TC()
 0
 0
 0
@@ -275,27 +236,31 @@ FEmuRxTimeCode()
  
 2
  
-EmuHwTimeCodePassSecond();
+varSHK_FDIR_TC.ExecHK_FDIRTC();
+[ServiceRequest]
+Msg->data
+HK_FDIRCtrl
+SHK_FDIR_TC
+CDTCHandler
+ 
 Inform
-FProgTimer()
+FInitHK_FDIR()
 0
 0
 0
 0
 1
  
-8
-	 
-	//Timing Service useful methods
-	 
-	//time.GetTime(); // Get current monotonic time
-	//time.Add(X,Y); // Add X sec + Y microsec
-  VEmuTimeCode+=Pr_Time(1,0);
+6
  
-  time=VEmuTimeCode;
+time.GetTime(); // Get current monotonic time   
+time+=Pr_Time(1,0); // Add X sec + Y microsec    
+VNextTimeout=time;
+ 
+ 
 [ServiceRequest]
 InformAt
-Timer
+HK_FDIRTimer
 EDROOMSignalTimeout
  
 EDROOMprioNormal

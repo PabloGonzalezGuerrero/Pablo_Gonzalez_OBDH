@@ -81,6 +81,31 @@ VCurrentTC.ExecPrioTC();
 
 
 
+void	CCTCManager::EDROOM_CTX_Top_0::FExecRebootTC()
+
+{
+
+VCurrentTC.ExecRebootTC();
+
+}
+
+
+
+void	CCTCManager::EDROOM_CTX_Top_0::FFwdBKGTC()
+
+{
+   //Allocate data from pool
+  CDTCHandler * pSBKGTC_Data = EDROOMPoolCDTCHandler.AllocData();
+	
+		// Complete Data 
+	
+	*pSBKGTC_Data=VCurrentTC;
+   //Send message 
+   BKGExecCtrl.send(SBKGTC,pSBKGTC_Data,&EDROOMPoolCDTCHandler); 
+}
+
+
+
 void	CCTCManager::EDROOM_CTX_Top_0::FFwdHK_FDIRTC()
 
 {
@@ -183,6 +208,17 @@ return VAcceptReport.IsAccepted();
 
 
 
+bool	CCTCManager::EDROOM_CTX_Top_0::GFwdBKGTC()
+
+{
+
+return VTCExecCtrl.IsBKGTC();
+ 
+
+}
+
+
+
 bool	CCTCManager::EDROOM_CTX_Top_0::GFwdToHK_FDIR()
 
 {
@@ -198,42 +234,6 @@ bool	CCTCManager::EDROOM_CTX_Top_0::GToReboot()
 {
 
 return VTCExecCtrl.IsRebootTC();
-
-}
-
-
-
-bool	CCTCManager::EDROOM_CTX_Top_0::GFwdBKGTC()
-
-{
-
-return VTCExecCtrl.IsBKGTC();
-
-
-}
-
-
-
-void	CCTCManager::EDROOM_CTX_Top_0::FFwdBKGTC()
-
-{
-   //Allocate data from pool
-  CDTCHandler * pSBKGTC_Data = EDROOMPoolCDTCHandler.AllocData();
-	
-		// Complete Data 
-	
-	*pSBKGTC_Data=VCurrentTC;
-   //Send message 
-   BKGExecCtrl.send(SBKGTC,pSBKGTC_Data,&EDROOMPoolCDTCHandler); 
-}
-
-
-
-void	CCTCManager::EDROOM_CTX_Top_0::FExecRebootTC()
-
-{
-
-VCurrentTC.ExecRebootTC();
 
 }
 
