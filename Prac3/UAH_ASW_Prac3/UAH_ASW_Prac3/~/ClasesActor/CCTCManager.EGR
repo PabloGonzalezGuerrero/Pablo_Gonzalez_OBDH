@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -20,7 +20,7 @@ NULL
 4
 [FinStack]
 [Puertos]
-1
+2
 [Version Puerto]
 0
 RxTC
@@ -32,6 +32,17 @@ RxTC
 51
 31
 CPRxTC
+[Version Puerto]
+0
+HK_FDIRCtrl
+1
+1
+0
+[Version Grafico Puerto]
+0
+29
+93
+CPHK_FDIRCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -51,12 +62,7 @@ CPRxTC
 3
 0
 [Pools]
-1
-[Version PoolDatosMens]
 0
-EDROOMPoolCDTCHandler
-CDTCHandler
-10
 [Modulos]
 2
 [Version Modulo]
@@ -172,9 +178,9 @@ GAcceptTC()
 ValidTC
 DSubEst
 FMngTCAcceptation();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -189,9 +195,9 @@ true
 Ready
 DSubEst
 FMngTCRejection();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -212,9 +218,9 @@ GToReboot()
 Reboot
 DSubEst
 FExecRebootTC();
-
  
-
+ 
+ 
 ;
 ;
 ;
@@ -229,9 +235,9 @@ true
 Ready
 DSubEst
 FExecPrioTC();
-
  
-
+ 
+ 
 ;
 ;
 ;
