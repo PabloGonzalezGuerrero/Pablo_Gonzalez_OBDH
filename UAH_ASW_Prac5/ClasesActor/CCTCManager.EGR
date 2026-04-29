@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -383,7 +383,7 @@ true
  
  
  
-FGetEvAction()();
+FGetEvAction();
 ;
 ;
 0
@@ -479,14 +479,18 @@ SHK_FDIR_TC
 CDTCHandler
 EDROOMprioNormal
 MsgDataHandler
-FGetEvAction()()
+FGetEvAction()
 0
 0
 0
 0
 1
  
-1
+5
+	
+		// Data access
+	
+	// ... =varSEvAction;
 VCurrentTC=varSEvAction.GetActionTCHandler();
 [ServiceRequest]
 Msg->data

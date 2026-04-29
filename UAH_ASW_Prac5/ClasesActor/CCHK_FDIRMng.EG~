@@ -5,8 +5,8 @@
 0
 0
 [Modificado]
-0
-0
+1
+1
 0
 [Estructura]
 [Version Estructura]
@@ -142,9 +142,9 @@ GPendingEvAction()
 Ready
 DSubEst
 ;
+
  
- 
- 
+
 ;
 FFwdEvAction();
 ;
@@ -265,19 +265,24 @@ FDoHK_FDIR()
 0
 1
  
-7
+12
+	 
+	//Timing Service useful methods
+	 
+	//time.GetTime(); // Get current monotonic time
+	//time.Add(X,Y); // Add X sec + Y microsec
  
-VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec 
-time=VNextTimeout; 
- 
+VNextTimeout+= Pr_Time(1,0); // Add X sec + Y microsec
+time=VNextTimeout;
 pus_services_update_params();
+pus_service4_update_all_stats();
 pus_service3_do_HK();
 pus_services_do_FDIR();
 [ServiceRequest]
 InformAt
 HK_FDIRTimer
 EDROOMSignalTimeout
- 
+CDEvAction
 EDROOMprioNormal
 MsgDataHandler
 FExecHK_FDIR_TC()
