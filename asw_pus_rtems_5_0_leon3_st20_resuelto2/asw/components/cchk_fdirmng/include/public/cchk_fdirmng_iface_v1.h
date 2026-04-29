@@ -211,7 +211,7 @@ public:
 			ExecTC,
 			DoHK_FDIR,
 			DoHK_FDIR_PendingEvAction,
-			DoHK_FDIR_NoEvAction,
+			DoHK_FDIR_Rama1,
 			EDROOMMemoryTrans };
 
 
@@ -276,17 +276,17 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FFwdEvAction();
+
+		/**
+		 * \brief  
+		 */
 		void	FInitHK_FDIR();
 
 		/**
-		 * \brief 
+		 * \brief  
 		 */
 		bool	GPendingEvAction();
-
-		/**
-		 * \brief 
-		 */
-		void	FFwdEvAction();
 
 	};
 

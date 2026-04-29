@@ -327,6 +327,11 @@ public:
 		/**
 		 * \brief  
 		 */
+		void	FGetEvAction()();
+
+		/**
+		 * \brief  
+		 */
 		void	FGetTC();
 
 		/**
@@ -373,11 +378,6 @@ public:
 		 * \brief  
 		 */
 		bool	GToReboot();
-
-		/**
-		 * \brief 
-		 */
-		void	FGetEvAction();
 
 	};
 
