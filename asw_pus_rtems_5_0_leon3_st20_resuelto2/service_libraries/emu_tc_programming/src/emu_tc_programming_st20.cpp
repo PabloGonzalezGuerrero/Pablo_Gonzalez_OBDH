@@ -28,7 +28,7 @@
 #include <public/emu_sc_channel_drv_v1.h>
 #include <public/emu_gss_v1.h>
 
-#define OBT_START_FT_ST20 (OBT_AFTER_POWER_ON + 0)
+//#define OBT_START_FT_ST20 (OBT_AFTER_POWER_ON + 0) ESTA
 
 //#define FT_UAH_ASW_ICU_ST20_SET_GET_PARAM_0070
 

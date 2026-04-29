@@ -57,6 +57,7 @@ llsw/emu_sc_channel_drv/src/emu_sc_channel_drv.o: \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service01/include/public/pus_service01.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service02/include/public/pus_service02.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service03/include/public/pus_service03.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service04/include/public/pus_service04.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service17/include/public/pus_service17.h \
@@ -119,6 +120,7 @@ llsw/emu_sc_channel_drv/src/emu_sc_channel_drv.o: \
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service01/include/public/pus_service01.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service02/include/public/pus_service02.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service03/include/public/pus_service03.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service04/include/public/pus_service04.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service17/include/public/pus_service17.h:

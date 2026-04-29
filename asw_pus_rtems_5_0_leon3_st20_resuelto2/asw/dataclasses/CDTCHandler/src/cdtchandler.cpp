@@ -161,6 +161,9 @@ void CDTCHandler::ExecHK_FDIRTC() {
 		uint8_t type = mTCHandler.tc_df_header.type;
 
 		switch (type) {
+		case (2):
+			pus_service2_exec_tc(&mTCHandler);
+			break;
 
 		case (3):
 			pus_service3_exec_tc(&mTCHandler);
@@ -175,7 +178,9 @@ void CDTCHandler::ExecHK_FDIRTC() {
 		case (12):
 			pus_service12_exec_tc(&mTCHandler);
 			break;
-
+		case (19):
+			pus_service19_exec_tc(&mTCHandler);
+			break;
 		default:
 			//No defined code for this TC. Design error
 			pus_service1_tx_TM_1_4_TC_X_Y_NO_EXEC_CODE(&mTCHandler);

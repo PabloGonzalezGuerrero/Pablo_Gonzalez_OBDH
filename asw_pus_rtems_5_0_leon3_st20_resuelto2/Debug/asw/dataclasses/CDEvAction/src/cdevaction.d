@@ -2,11 +2,11 @@ asw/dataclasses/CDEvAction/src/cdevaction.o: \
  ../asw/dataclasses/CDEvAction/src/cdevaction.cpp \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDEvAction/include/public/cdevaction_iface_v1.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDEvAction/include/public/cdevaction.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/config.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/edroom_glue/include/edroom_glue/edroomdf.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/basic_types.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_handler/include/public/pus_tc_handler.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/public/ccsds_pus.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/ccsds_pus/ccsds_pus_format.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/ccsds_pus/uah_pus_mission.h \
@@ -14,16 +14,25 @@ asw/dataclasses/CDEvAction/src/cdevaction.o: \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tc_descriptor.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tm_descriptor.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tmtc_pool.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_handler/include/public/pus_tc_handler.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCMemDescriptor/include/public/cdtcmemdescriptor_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCMemDescriptor/include/public/cdtcmemdescriptor.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCAcceptReport/include/public/cdtcacceptreport_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCAcceptReport/include/public/cdtcacceptreport.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_accept_report/include/public/pus_tc_accept_report.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tm_handler/include/public/pus_tm_handler.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_sys_data_pool/include/public/pus_sys_data_pool.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_sys_data_pool/include/public/sys_data_pool_pids.h
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDEvAction/include/public/cdevaction_iface_v1.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDEvAction/include/public/cdevaction.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/config.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/edroom_glue/include/edroom_glue/edroomdf.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/basic_types.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_handler/include/public/pus_tc_handler.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/public/ccsds_pus.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/ccsds_pus/ccsds_pus_format.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/ccsds_pus/uah_pus_mission.h:
@@ -31,6 +40,15 @@ asw/dataclasses/CDEvAction/src/cdevaction.o: \
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tc_descriptor.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tm_descriptor.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tmtc_dyn_mem/include/tmtc_dyn_mem/tmtc_pool.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_handler/include/public/pus_tc_handler.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCMemDescriptor/include/public/cdtcmemdescriptor_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCMemDescriptor/include/public/cdtcmemdescriptor.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCAcceptReport/include/public/cdtcacceptreport_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCAcceptReport/include/public/cdtcacceptreport.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_accept_report/include/public/pus_tc_accept_report.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tm_handler/include/public/pus_tm_handler.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_sys_data_pool/include/public/pus_sys_data_pool.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_sys_data_pool/include/public/sys_data_pool_pids.h:

@@ -28,9 +28,9 @@
 #include <public/emu_sc_channel_drv_v1.h>
 #include <public/emu_gss_v1.h>
 
-#define OBT_START_FT_ST05_12 (OBT_AFTER_POWER_ON )
+//#define OBT_START_FT_ST05_12 (OBT_AFTER_POWER_ON )  ESTA
 
-#define FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080
+//#define FT_UAH_ASW_ICU_SERVS_5_12_Limits_Monitoring_0080
 
 //#define FT_UAH_ASW_ICU_SERVS_5_12_EvDisabled_0090
 //#define FT_UAH_ASW_ICU_SERVS_5_12_MonMaskedValue_0100

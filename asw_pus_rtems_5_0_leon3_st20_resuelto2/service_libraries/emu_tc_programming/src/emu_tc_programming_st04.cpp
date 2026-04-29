@@ -29,11 +29,11 @@
 #include <public/emu_sc_channel_drv_v1.h>
 #include <public/emu_gss_v1.h>
 
-#define OBT_START_FT_ST04 (OBT_AFTER_POWER_ON + 0)
+//#define OBT_START_FT_ST04 (OBT_AFTER_POWER_ON + 0) ESTA
 
-#define FT_SOLO_EPD_ICU_SERV_4_TC_0110
+//#define FT_SOLO_EPD_ICU_SERV_4_TC_0110 ESTA
 
-
+/*
 #ifdef FT_SOLO_EPD_ICU_SERV_4_TC_0110
 
 
@@ -70,6 +70,6 @@ EmuGSS_TCProgram4_1 prog_FT_0110_step_4(FT_SOLO_EPD_ICU_SERV_4_0110_TIME_step4,
 #endif
 
 
-
+*/
 
 

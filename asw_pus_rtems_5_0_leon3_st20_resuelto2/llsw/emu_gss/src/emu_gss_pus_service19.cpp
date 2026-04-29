@@ -135,12 +135,15 @@ EmuGSS_TCProgram19_5::EmuGSS_TCProgram19_5(uint32_t uniTime2YK,
 
 	//TODO Get attributes from Constructor Parameters and
 	//Call to NeProgram(this); (See 19_4 constructor)
+	mEvID = evID;
+	NewProgram(this);
 }
 
 void EmuGSS_TCProgram19_5::BuildTCAppData(tc_mem_descriptor_t &tc_descriptor) {
 
 	//TODO Set TC App Data Using SetNextXXXX As EmuGSS_TCProgram19_4
-
+	SetNextUInt8(1);
+	SetNextUInt16(mEvID);
 }
 
 //********************************************************+

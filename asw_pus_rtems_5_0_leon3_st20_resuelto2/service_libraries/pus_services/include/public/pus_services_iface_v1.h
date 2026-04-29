@@ -40,11 +40,13 @@
 
 //TODO Add PUS SERVICE include
 #include "public/pus_service01.h"
+#include "public/pus_service02.h"
 #include "public/pus_service03.h"
 #include "public/pus_service04.h"
 #include "public/pus_service05.h"
 #include "public/pus_service12.h"
 #include "public/pus_service17.h"
+#include "public/pus_service19.h"
 #include "public/pus_service20.h"
 
 

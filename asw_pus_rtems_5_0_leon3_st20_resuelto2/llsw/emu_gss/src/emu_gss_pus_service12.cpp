@@ -37,7 +37,7 @@
 #define TC_12_5_LIMIT_UINT8_APPDATA_LENGTH 14
 #define TC_12_5_VALUE_UINT8_APPDATA_LENGTH 12
 #define TC_12_6_APPDATA_LENGTH 3
-/*
+
 EmuGSS_TCProgram12_1::EmuGSS_TCProgram12_1(uint32_t uniTime2YK,
 		const char *brief, uint16_t pmonid) :
 		EmuGSS_TCProgram(uniTime2YK, 12, 1,
@@ -365,4 +365,3 @@ void GSSServ12TMHandler::ShowTM_12_12() {
 
 }
 
-*/

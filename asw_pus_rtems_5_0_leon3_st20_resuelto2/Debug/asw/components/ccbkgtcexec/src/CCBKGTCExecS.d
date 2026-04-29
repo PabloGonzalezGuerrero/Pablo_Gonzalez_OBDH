@@ -1,10 +1,17 @@
-llsw/emu_gss/src/emu_gss_pus_service12.o: \
- ../llsw/emu_gss/src/emu_gss_pus_service12.cpp \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h \
+asw/components/ccbkgtcexec/src/CCBKGTCExecS.o: \
+ ../asw/components/ccbkgtcexec/src/CCBKGTCExecS.cpp \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/components/ccbkgtcexec/include/public/ccbkgtcexec_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/edroomsl_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/edroomsl.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/config.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/edroom_glue/include/edroom_glue/edroomdf.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/basic_types.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroombp/include/public/edroombp.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/components/cchk_fdirmng/include/../../../../llsw/config/include/public/config.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroombp/include/edroombp_swr/rtemsapi_5_1/rtems_5_1/edroombp.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroombp/include/edroombp_swr/rtemsapi_5_1/rtems_5_1/../../edroomtypes.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroomsl_types/include/public/edroomsl_types.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroomsl_types/include/public/../../../edroomsl_types/include/edroomsl_types/edroomsl_types.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler_iface_v1.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/public/ccsds_pus.h \
@@ -22,6 +29,8 @@ llsw/emu_gss/src/emu_gss_pus_service12.o: \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_accept_report/include/public/pus_tc_accept_report.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl_iface_v1.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h \
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tc_rate_ctrl/include/public/tc_rate_ctrl.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service01/include/public/pus_service01.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tm_handler/include/public/pus_tm_handler.h \
@@ -34,27 +43,19 @@ llsw/emu_gss/src/emu_gss_pus_service12.o: \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service12/include/public/pus_service12.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service17/include/public/pus_service17.h \
  /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service20/include/public/pus_service20.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/emu_gss_v1.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_tm_handler.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_tc_program.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service01.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service02.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service03.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service04.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service12.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service17.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service19.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/../emu_gss/emu_gss_pus_service02.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/../emu_gss/emu_gss_pus_service128.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service20.h \
- /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/emu_gss/emu_gss_sys_data_pool.h
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h:
+ /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service20/include/public/pus_service20.h
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/components/ccbkgtcexec/include/public/ccbkgtcexec_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/edroomsl_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/edroomsl.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/config.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/edroom_glue/include/edroom_glue/edroomdf.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/config/include/public/basic_types.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroombp/include/public/edroombp.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/components/cchk_fdirmng/include/../../../../llsw/config/include/public/config.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroombp/include/edroombp_swr/rtemsapi_5_1/rtems_5_1/edroombp.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroombp/include/edroombp_swr/rtemsapi_5_1/rtems_5_1/../../edroomtypes.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroomsl_types/include/public/edroomsl_types.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/edroomsl/edroomsl/include/public/../../../edroomsl/include/edroomsl/../../../edroomsl_types/include/public/../../../edroomsl_types/include/edroomsl_types/edroomsl_types.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler_iface_v1.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/ccsds_pus/include/public/ccsds_pus.h:
@@ -72,6 +73,8 @@ llsw/emu_gss/src/emu_gss_pus_service12.o: \
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tc_accept_report/include/public/pus_tc_accept_report.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl_iface_v1.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCExecCtrl/include/public/cdtcexecctrl.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/include/public/pus_services_iface_v1.h:
+/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/serialize/include/public/serialize.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/tc_rate_ctrl/include/public/tc_rate_ctrl.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service01/include/public/pus_service01.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_tm_handler/include/public/pus_tm_handler.h:
@@ -85,18 +88,3 @@ llsw/emu_gss/src/emu_gss_pus_service12.o: \
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service17/include/public/pus_service17.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service19/include/public/pus_service19.h:
 /home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/service_libraries/pus_services/pus_service20/include/public/pus_service20.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/emu_gss_v1.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/asw/dataclasses/CDTCHandler/include/public/cdtchandler.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_tm_handler.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_tc_program.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service01.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service02.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service03.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service04.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service12.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service17.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service19.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/../emu_gss/emu_gss_pus_service02.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/../emu_gss/emu_gss_pus_service128.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/public/../emu_gss/emu_gss_pus_service20.h:
-/home/atcsol/git/Pablo_Gonzalez_OBDH/asw_pus_rtems_5_0_leon3_st20_resuelto2/llsw/emu_gss/include/emu_gss/emu_gss_sys_data_pool.h:
