@@ -327,7 +327,7 @@ public:
 		/**
 		 * \brief  
 		 */
-		void	FGetEvAction()();
+		void	FGetEvAction();
 
 		/**
 		 * \brief  

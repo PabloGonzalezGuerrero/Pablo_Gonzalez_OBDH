@@ -121,11 +121,15 @@ void	CCTCManager::EDROOM_CTX_Top_0::FFwdHK_FDIRTC()
 
 
 
-void	CCTCManager::EDROOM_CTX_Top_0::FGetEvAction()()
+void	CCTCManager::EDROOM_CTX_Top_0::FGetEvAction()
 
 {
    //Handle Msg->data
   CDEvAction & varSEvAction = *(CDEvAction *)Msg->data;
+	
+		// Data access
+	
+	// ... =varSEvAction;
 VCurrentTC=varSEvAction.GetActionTCHandler();
 
 }
