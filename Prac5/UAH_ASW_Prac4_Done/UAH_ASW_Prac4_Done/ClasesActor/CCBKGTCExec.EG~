@@ -7,7 +7,7 @@
 [Modificado]
 0
 0
-3
+0
 [Estructura]
 [Version Estructura]
 3
@@ -23,66 +23,24 @@ NULL
 1
 [Version Puerto]
 0
-Timer
+BKGExecCtrl
 0
 1
-1
+0
 [Version Grafico Puerto]
 0
-86
-86
-EDROOMTimingSAP
+46
+4
+CPBKGExecCtrl
 [FinPuertos]
 [ActoresComponente]
-2
-[Version Actor Componente]
-2
-TCManager
-1
 0
--1
-10
-7
-EDROOMprioHigh
- 
-[Version Grafico Actor Componente]
-0
-26.3672
-18.6858
-70.8984
-33.0595
-CCTCManager
-[Version Actor Componente]
-2
-HK_FDIRMng
-1
-0
-0
-10
-7
-EDROOMprioNormal
- 
-[Version Grafico Actor Componente]
-0
-18.75
-50.924
-36.3281
-73.5113
-CCHK_FDIRMng
 [FinActoresComponente]
 [Uniones]
-1
-[Version Union]
 0
-Union
-1
-HK_FDIRCtrl
-HK_FDIRCtrl
-TCManager
-HK_FDIRMng
 [FinUniones]
 [NumTimers]
-2
+0
 [FinNumTimers]
 [NumMsgDef]
 10
@@ -98,19 +56,14 @@ HK_FDIRMng
 1
 [Version Modulo]
 1
-emu_hw_timecode_drv
+pus_services_iface
  
 v1
  
 1
 1
 [Eventos]
-1
-[Event]
-[Version]
-1
-EvTimerTimer
-Timer
+0
 [Maquina de Estados]
 [Version Maquina de Estados]
 1
@@ -136,7 +89,7 @@ I
 Ready
 ;
 ;
-FProgTimer();
+;
 ;
 ;
 1
@@ -144,7 +97,7 @@ FProgTimer();
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-207 225 183 86
+227 191 185 172
 [FinObjetoGrafico]
 [PuntosEleccion]
 0
@@ -159,7 +112,7 @@ I
 OSubEstI
 Ready
 DSubEst
-FEmuInit();
+;
 [Trigger]
 EDROOMsl
 EDROOMStart
@@ -175,22 +128,22 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-116 121 207 256 0
+121 116 227 221 0
 [FinGraficoTransicion]
-NexTimeCode
+ExecTC
 Ready
 OSubEst
 Ready
 DSubEst
-FEmuRxTimeCode();
+;
 [Trigger]
-Timer
-EDROOMSignalTimeout
+BKGExecCtrl
+SBKGTC
 true
  
  
  
-;
+FExecBKGTC();
 ;
 ;
 0
@@ -198,82 +151,35 @@ true
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-239 225 366 225 4
+227 248 227 341 6
 [FinGraficoTransicion]
 [VariablesConstantes]
-1
-[Version VariYConst]
-0
-VEmuTimeCode
-Pr_Time
-
-Variable
 0
 [Metodos]
-3
+1
 [Version Metodos]
 21
-Inform
-FEmuInit()
+MsgDataHandler
+FExecBKGTC()
 0
 0
 0
 0
 1
  
-12
-	 
-	//Timing Service useful methods
+6
+ 
 	
- 
-VEmuTimeCode.GetTime();
- 
-EmuHwTimeCodeStartUp();
-	 
-VEmuTimeCode.GetTime();	
-VEmuTimeCode+=Pr_Time(1,0);
- 
-time=VEmuTimeCode;
+varSBKGTC.ExecBKGTC();
+		
+	
+   
 [ServiceRequest]
-InformAt
-Timer
-EDROOMSignalTimeout
+Msg->data
+BKGExecCtrl
+SBKGTC
+CDTCHandler
  
- 
-BasicAction
-FEmuRxTimeCode()
-0
-0
-0
-0
-1
- 
-2
- 
-EmuHwTimeCodePassSecond();
-Inform
-FProgTimer()
-0
-0
-0
-0
-1
- 
-8
-	 
-	//Timing Service useful methods
-	 
-	//time.GetTime(); // Get current monotonic time
-	//time.Add(X,Y); // Add X sec + Y microsec
-  VEmuTimeCode+=Pr_Time(1,0);
- 
-  time=VEmuTimeCode;
-[ServiceRequest]
-InformAt
-Timer
-EDROOMSignalTimeout
- 
-EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]

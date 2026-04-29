@@ -20,7 +20,18 @@ NULL
 4
 [FinStack]
 [Puertos]
-2
+3
+[Version Puerto]
+0
+HK_FDIRCtrl
+1
+1
+0
+[Version Grafico Puerto]
+0
+31
+93
+CPHK_FDIRCtrl
 [Version Puerto]
 0
 RxTC
@@ -34,15 +45,15 @@ RxTC
 CPRxTC
 [Version Puerto]
 0
-HK_FDIRCtrl
+BKGExecCtrl
 1
 1
 0
 [Version Grafico Puerto]
 0
-29
+72
 93
-CPHK_FDIRCtrl
+CPBKGExecCtrl
 [FinPuertos]
 [ActoresComponente]
 0
@@ -152,7 +163,7 @@ ValidTC
 [ObjetoGrafico]
 [Version Objeto Grafico]
 0
-485 587 143 43
+485 590 143 43
 [FinObjetoGrafico]
 [PuntosEleccion]
 2
@@ -193,7 +204,7 @@ FMngTCAcceptation();
 [GraficoRama]
 [Version GraficoRama]
 0
-269 611 485 610 1
+269 611 485 613 0
 [FinGraficoRama]
 NotAccepted
 true
@@ -215,7 +226,7 @@ FMngTCRejection();
 HandleTC
 0
 [Ramas]
-3
+4
 [Version Ramas]
 5
 ToReboot
@@ -257,9 +268,9 @@ GFwdToHK_FDIR()
 Ready
 DSubEst
 ;
-
  
-
+ 
+ 
 ;
 FFwdHK_FDIRTC();
 ;
@@ -267,7 +278,24 @@ FFwdHK_FDIRTC();
 [GraficoRama]
 [Version GraficoRama]
 0
-537 342 322 245 3
+538 344 322 255 3
+[FinGraficoRama]
+FwdBKGTC
+GFwdBKGTC()
+Ready
+DSubEst
+;
+ 
+ 
+ 
+;
+FFwdBKGTC();
+;
+;
+[GraficoRama]
+[Version GraficoRama]
+0
+545 351 322 332 3
 [FinGraficoRama]
 [Transiciones]
 3
@@ -340,7 +368,7 @@ FTCExecCtrl();
 [GraficoTransicion]
 [Version GraficoTransicion]
 0
-560 587 553 351 3
+560 590 553 351 3
 [FinGraficoTransicion]
 [VariablesConstantes]
 3
@@ -366,7 +394,7 @@ CDTCExecCtrl
 Variable
 0
 [Metodos]
-12
+14
 [Version Metodos]
 21
 BasicAction
@@ -389,6 +417,44 @@ FExecRebootTC()
  
 1
 VCurrentTC.ExecRebootTC();
+SendMsg
+FFwdBKGTC()
+0
+0
+0
+0
+1
+ 
+4
+	
+		// Complete Data 
+	
+	*pSBKGTC_Data=VCurrentTC;
+[ServiceRequest]
+send
+BKGExecCtrl
+SBKGTC
+CDTCHandler
+EDROOMprioNormal
+SendMsg
+FFwdHK_FDIRTC()
+0
+0
+0
+0
+1
+ 
+4
+	
+		// Complete Data 
+	
+*pSHK_FDIR_TC_Data=VCurrentTC;   
+[ServiceRequest]
+send
+HK_FDIRCtrl
+SHK_FDIR_TC
+CDTCHandler
+EDROOMprioNormal
 MsgDataHandler
 FGetTC()
 0
@@ -482,6 +548,27 @@ GAcceptTC()
 1
 return VAcceptReport.IsAccepted();
 Guard
+GFwdBKGTC()
+0
+0
+0
+0
+1
+ 
+2
+return VTCExecCtrl.IsBKGTC();
+ 
+Guard
+GFwdToHK_FDIR()
+0
+0
+0
+0
+1
+ 
+1
+return VTCExecCtrl.IsHK_FDIRTC();
+Guard
 GToReboot()
 0
 0
@@ -491,35 +578,6 @@ GToReboot()
  
 1
 return VTCExecCtrl.IsRebootTC();
-Guard
-GFwdToHK_FDIR()
-0
-0
-0
-0
-1
-
-1
-return VTCExecCtrl.IsHK_FDIRTC();
-SendMsg
-FFwdHK_FDIRTC()
-0
-0
-0
-0
-1
-
-4
-	
-		// Complete Data 
-	
-	*pSHK_FDIR_TC_Data=VCurrentTC;
-[ServiceRequest]
-send
-HK_FDIRCtrl
-SHK_FDIR_TC
-CDTCHandler
-EDROOMprioNormal
 [MaquinasSubEstados]
 0
 [FinMaquinasSubEstados]
