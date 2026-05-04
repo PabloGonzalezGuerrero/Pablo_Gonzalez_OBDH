@@ -19,9 +19,9 @@ UAH_ASW
 [CurrentTarget]
 0
 [MESP Directory]
-C:\Users\pablo\Documents\OBDH\asw_pus_rtems_5_0_leon3_st20_resuelto\asw_pus_rtems_5_0_leon3_st20_resuelto\asw
+C:\Users\pablo\Documents\OBDH\asw_pus_rtems_5_0_leon3_st20_resuelto2\asw
 [MESP main Directory]
-C:\Users\pablo\Documents\OBDH\asw_pus_rtems_5_0_leon3_st20_resuelto\asw_pus_rtems_5_0_leon3_st20_resuelto
+C:\Users\pablo\Documents\OBDH\asw_pus_rtems_5_0_leon3_st20_resuelto2
 [MESP main prototype]
 extern "C" rtems_task Init (uint32_t arg)
 [MESP main return]
